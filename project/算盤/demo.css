@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.input{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 50px;
+
+
+}
+.inputContent{
+    width: 700px;
+    height: 100px;
+    outline:none;
+    padding: 50px;
+    font-size: 4rem;
+    font-weight: bold;
+    
+
+}
+/*  */
+.abacus{
+    /* height: 60vh; */
+    border: 1px solid black;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.abacusContent{
+    padding: 50px;
+}
+
+.beadFirstContent{
+    display: flex;
+    /* padding: 50px; */
+
+}
+.beadSecContent{
+    display: flex;
+}
+.beadContent{
+    position: relative;
+    border: 2px solid burlywood;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+   
+    padding: 0 30px;
+
+}
+.beadContent::after{
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 56px;
+    background-color: black;
+    z-index: -1;
+    
+}
+.beadContentTop{
+    justify-content: flex-start;
+    height: 80px;
+
+}
+.bead{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: brown;
+    margin: 3px;
+}
+
+

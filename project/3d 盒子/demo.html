@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+    <!-- <h1>Make up</h1> -->
+    <div id="boxmodel" class="boxmodel">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div> 
+        <div>5</div>
+        <div>6</div>
+    </div>
+    
+
+
+<Script>
+    // var boxmodel=document.getElementById("boxmodel")
+    // var x;
+    // var y;
+    // boxmodel.onmousedown=function(ev){
+    //     x=ev.clientX
+    //     y=ev.clientY
+    //     document.onmousemove=function(ev){
+    //         var x1=ev.clientX+30
+    //         var y1=ev.clientY-30
+    //     }
+    //     document.onmouseup=function(){
+	// 			document.onmousemove=null;
+    //     } 
+    // }
+
+    // 先宣告我可能會有哪些動作 並把動做變成變數
+    var boxmodel = document.querySelector(".boxmodel"),
+    downX, downY, moveX, moveY, tempX, tempY, degX = 0, degY = 0;
+    // 在這個視窗點擊滑鼠
+    window.onmousedown = function (e) {
+        e = e || event;
+        downX = e.clientX;            //获取鼠标点下去时的坐标
+        // console.log(downX);
+        downY = e.clientY;
+        window.onmousemove = function (e) {
+            e = e || event;
+            moveX = e.clientX - downX;            //算出鼠标移动的距离
+            moveY = e.clientY - downY;
+            //根据一定比例将变化反应在盒子上，改变比例5可以调节拖动的速度
+            tempX = degX + moveX / 5;            
+            tempY = degY - moveY / 5;
+            boxmodel.style.transform = "rotatex(" + tempY + "deg) rotatey(" + tempX + "deg)";
+        };
+    };
+    window.onmouseup = function (e) {
+        e = e || event;
+        degX += moveX / 5;            //鼠标松开时将拖动期间改变的最终结果保存
+        degY += - moveY / 5;
+        window.onmousemove = null;            //取消监听
+    };
+    
+        
+</Script>
+</body>
+</html>

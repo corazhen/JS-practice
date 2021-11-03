@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 套入顏色 */
+        .circle1{
+            position: absolute;
+            top: 30%;
+            left:10%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid  rgb(3, 3, 3) ;
+            background-color: #faa307;
+            z-index: -1;
+        }
+        /* 套入漸層 */
+
+        .circle2{
+            position: absolute;
+            top: 30%;
+            left:40%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid  rgb(3, 3, 3) ;
+            background: -webkit-radial-gradient(rgb(220, 47, 2), rgb(255, 186, 8));
+            background: radial-gradient(rgb(220, 47, 2), rgb(255, 186, 8));
+        }
+       
+
+        .a1{
+            position: absolute;
+            top: 35%;
+            left:35%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            /* border: 1px solid  rgb(3, 3, 3) ; */
+            background-color: #dc2f02;
+            /* background: radial-gradient(rgb(220, 47, 2), rgb(232, 93, 4)); */
+            z-index: 4;
+
+        }
+        .b1{
+            position: absolute;
+            top: 25%;
+            left:25%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* border: 1px solid  rgb(3, 3, 3) ; */
+            background-color: #e85d04;
+            /* background: radial-gradient(rgb(232, 93, 4), rgb(244, 140, 6)); */
+
+            z-index: 3;
+
+
+        }
+        .c1{
+            position: absolute;
+            top: 10%;
+            left:10%;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            /* border: 1px solid  rgb(3, 3, 3) ; */
+            background-color: #f48c06;
+            z-index: 2;
+
+
+        }
+        /* hr */
+        
+        .a2{
+            width: 100%;
+            height: 100%;
+           
+
+        }
+        /* hr */
+         /* 套入流動感 */
+        .circle3{
+            position: absolute;
+            top: 30%;
+            right:10%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid  rgb(3, 3, 3) ;
+           
+        }
+        .circle_inside{ 
+            width:80%; 
+            height:80%;
+            left:10%; 
+            border-radius:50%; 
+            border: 1px solid  rgb(3, 3, 3) ;
+            background:#cf2020;
+            position:absolute;
+            top:10%;
+        }
+        /* #circle 
+        {
+            margin-left:50%;
+            position:relative;
+            left:-250px;
+            width:500px;
+            height:500px;
+        } */
+    </style>
+</head>
+<body>
+    <div class="circle1">
+     <div class="a1"></div>
+     <div class="b1"></div>
+     <div class="c1"></div>
+
+    </div>
+    <!-- <hr> -->
+    <div class="circle2">
+    </div>
+    <!-- <hr> -->
+    <div class="circle3 bg1" id="circle"> 
+    </div>  
+
+<!-- $(selector).fadeIn(speed,callback) -->
+<script>
+    // .split 將該字串切割成一個陣列
+    var total_c = 'dc2f02,e85d04,f48c06'.split(',');
+    // 先創造出顏色
+    function create_color(){
+        
+        var color = '',
+        // 亂數取得裡面的顏色內容
+        //  先把字串變成數字 用length =3
+        // 
+        total_c_length = total_c.length,
+
+        // Math.floor舊式去掉小數  跟我原本對c的觀念不一樣
+        // c會保留原本小數位 但也會呈現整數
+        // 為什麼要*??
+        random_nmb = Math.floor(Math.random()*total_c_length);
+         // #是顏色部分
+        return '#'+total_c[random_nmb];
+        
+        
+    }
+    function create_inside_circle(color, id) {
+        // id='"+id+"'????
+        return "<div id='"+id+"' class='circle_inside' style='background:"+color+";'></div>";
+    }
+    function create_all_circle() {
+        var circle_nmb = 3,
+            html = [],
+            id = 0,
+            inside_circle = document.getElementById('circle');
+        for(var i=0; i<circle_nmb; i++) {
+            id = "circle"+i;
+            inside_circle.innerHTML = create_inside_circle(create_color(), id);
+            inside_circle = document.getElementById(id);
+        }
+  } 
+
+</script>
+</body>
+</html>

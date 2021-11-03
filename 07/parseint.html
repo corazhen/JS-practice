@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // parseInt turn string into number,使用 parseInt 時一定要指定 radix。
+        
+        console.log( parseInt('900719925474099267n'));
+        // NaN Not-A-Number
+        function roughScale(x, base) {
+        const parsed = parseInt(x, base);
+        if (isNaN(parsed)) { return 0; }
+        return parsed * 100;
+        }
+
+        console.log(roughScale(' 0xF', 16));
+        // expected output: 1500
+
+        console.log(roughScale('321', 2));
+        // expected output: 0
+        console.log(roughScale('321', 10));
+        // expected output: 32100
+        console.log(roughScale('321', 10));
+        // expected output: 32100
+        console.clear()
+        
+        function test(x,base){
+            const cora= parseInt(x,base);
+            if(isNaN(cora)){return 0;}
+            return cora*10;
+            
+
+        }
+        console.log(test('3'));
+        // expected output: 30
+        console.log(test('cora'));
+        // expected output: 321
+        const cora02 =parseInt("cora02");
+        console.log(cora02);
+        const cora03 =parseInt("02cora");
+        console.log(cora03);
+
+        console.log(parseInt("022cora"));
+        
+
+
+
+    </script>
+</body>
+</html>
